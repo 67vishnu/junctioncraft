@@ -26,7 +26,7 @@ function ScrollToTop() {
 function App() {
   return (
     <div className="App">
-      <BrowserRouter basename={window.location.hostname === "67vishnu.github.io" ? "/junctioncraft" : "/"}>
+     <BrowserRouter basename={window.location.hostname === "67vishnu.github.io" ? "/junctioncraft" : "/"}>
         <ScrollToTop />
         <Navbar />
         <Routes>
