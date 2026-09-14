@@ -57,12 +57,35 @@ const ProjectDetail = () => {
               <p className="text-lg text-neutral-700 leading-relaxed">
                 {project.summary}
               </p>
-              <p className="text-neutral-600 leading-relaxed mt-5">
-                Junctioncraft executed this scope end-to-end — from survey and
-                engineering through foundation, erection and stringing, to final
-                testing and energisation — adhering to Class-1 contractor
-                discipline and national safety standards throughout.
+
+              <h2 className="font-display text-xl font-bold text-neutral-900 mt-8 mb-2">
+                The challenge
+              </h2>
+              <p className="text-neutral-600 leading-relaxed">
+                {project.challenge}
               </p>
+
+              <h2 className="font-display text-xl font-bold text-neutral-900 mt-6 mb-2">
+                The outcome
+              </h2>
+              <p className="text-neutral-600 leading-relaxed">
+                {project.outcome}
+              </p>
+
+              <h2 className="font-display text-xl font-bold text-neutral-900 mt-6 mb-3">
+                Highlights
+              </h2>
+              <div className="flex flex-wrap gap-3">
+                {project.highlights.map((h, i) => (
+                  <span
+                    key={i}
+                    className="bg-secondary text-primary font-medium px-4 py-2 rounded-full text-sm"
+                  >
+                    {h}
+                  </span>
+                ))}
+              </div>
+
               <Link
                 to="/contact"
                 className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 rounded-md font-semibold mt-8 hover:bg-emerald-800 transition-all"

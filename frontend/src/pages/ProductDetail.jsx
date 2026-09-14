@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight, CheckCircle2, Layers } from "lucide-react";
 import Reveal from "../components/Reveal";
+import QuoteForm from "../components/QuoteForm";
 import { Eyebrow, CtaBand } from "../components/Sections";
 import { PRODUCTS } from "../mock";
 
@@ -28,6 +29,9 @@ const ProductDetail = () => {
               </h1>
               <p className="text-lg text-neutral-600 leading-relaxed mt-6">
                 {product.long}
+              </p>
+              <p className="text-neutral-600 leading-relaxed mt-4">
+                {product.long2}
               </p>
               <Link
                 to="/contact"
@@ -67,6 +71,18 @@ const ProductDetail = () => {
             </div>
 
             <h2 className="font-display text-2xl font-bold text-neutral-900 mt-12 mb-6">
+              Why choose ours
+            </h2>
+            <div className="space-y-3">
+              {product.benefits.map((b, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-neutral-700">{b}</span>
+                </div>
+              ))}
+            </div>
+
+            <h2 className="font-display text-2xl font-bold text-neutral-900 mt-12 mb-6">
               Applications
             </h2>
             <div className="flex flex-wrap gap-3">
@@ -98,6 +114,9 @@ const ProductDetail = () => {
                   </div>
                 ))}
               </dl>
+            </div>
+            <div className="mt-6">
+              <QuoteForm item={product.name} source="product" />
             </div>
           </Reveal>
         </div>

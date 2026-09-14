@@ -3,6 +3,7 @@ import { toast } from "sonner";
 import { Mail, Phone, MapPin, ArrowUpRight, Send } from "lucide-react";
 import Reveal from "../components/Reveal";
 import { Eyebrow } from "../components/Sections";
+import { createEnquiry } from "../api";
 import { COMPANY, SERVICES } from "../mock";
 
 const Contact = () => {
@@ -18,22 +19,22 @@ const Contact = () => {
   const handle = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
       toast.error("Please fill in your name, email and message.");
       return;
     }
     setSubmitting(true);
-    // FRONTEND-ONLY: save to localStorage and show success (no backend yet)
-    setTimeout(() => {
-      const prev = JSON.parse(localStorage.getItem("jcpl_inquiries") || "[]");
-      prev.push({ ...form, at: new Date().toISOString() });
-      localStorage.setItem("jcpl_inquiries", JSON.stringify(prev));
-      setSubmitting(false);
+    try {
+      await createEnquiry({ ...form, source: "contact" });
       setForm({ name: "", email: "", phone: "", service: "", message: "" });
       toast.success("Thank you! We'll get back to you shortly.");
-    }, 700);
+    } catch (err) {
+      toast.error("Something went wrong. Please try again or WhatsApp us.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const inputCls =

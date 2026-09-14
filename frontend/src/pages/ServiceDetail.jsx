@@ -12,6 +12,7 @@ import {
   Lightbulb,
 } from "lucide-react";
 import Reveal from "../components/Reveal";
+import QuoteForm from "../components/QuoteForm";
 import { Eyebrow, CtaBand } from "../components/Sections";
 import { SERVICES } from "../mock";
 
@@ -44,6 +45,9 @@ const ServiceDetail = () => {
               </h1>
               <p className="text-lg text-neutral-600 leading-relaxed mt-6">
                 {service.long}
+              </p>
+              <p className="text-neutral-600 leading-relaxed mt-4">
+                {service.long2}
               </p>
               <Link
                 to="/contact"
@@ -110,7 +114,25 @@ const ServiceDetail = () => {
                 </div>
               ))}
             </div>
+
+            <h2 className="font-display text-2xl font-bold text-neutral-900 mt-10 mb-4">
+              Client benefits
+            </h2>
+            <div className="space-y-3">
+              {service.benefits.map((b, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-neutral-700">{b}</span>
+                </div>
+              ))}
+            </div>
           </Reveal>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 mt-12">
+          <div className="max-w-xl">
+            <QuoteForm item={service.title} source="service" />
+          </div>
         </div>
       </section>
 

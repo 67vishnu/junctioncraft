@@ -101,3 +101,108 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "Junctioncraft EPC Power Solutions - Backend API for enquiry management and company profile PDF generation"
+
+backend:
+  - task: "GET /api/ - Hello World endpoint"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Tested GET /api/ endpoint. Returns 200 with {\"message\": \"Hello World\"}. Working correctly."
+
+  - task: "POST /api/enquiries - Create enquiry (contact form)"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Tested POST /api/enquiries with contact form data (name, email, phone, service, message, source='contact'). Returns 200 with JSON containing id (UUID), all echoed fields, and created_at timestamp. All fields validated correctly."
+
+  - task: "POST /api/enquiries - Create enquiry (product quote form)"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Tested POST /api/enquiries with product quote data (source='product', item='Lattice Towers'). Returns 200 with correct structure. Product enquiry variant working correctly."
+
+  - task: "POST /api/enquiries - Email validation"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Tested POST /api/enquiries with invalid email ('notanemail'). Correctly returns 422 validation error with detailed message about missing @-sign. Email validation working as expected."
+
+  - task: "GET /api/enquiries - List enquiries"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Tested GET /api/enquiries. Returns 200 with JSON list of enquiries. Verified correct ordering (newest first by created_at descending). All required fields present in response."
+
+  - task: "GET /api/company-profile.pdf - Generate company profile PDF"
+    implemented: true
+    working: true
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Tested GET /api/company-profile.pdf. Returns 200 with Content-Type: application/pdf, Content-Disposition: attachment with filename 'Junctioncraft-Company-Profile.pdf'. PDF body starts with correct magic bytes '%PDF' and has reasonable size (4650 bytes). PDF generation working correctly."
+
+frontend:
+  - task: "Frontend testing"
+    implemented: false
+    working: "NA"
+    file: ""
+    stuck_count: 0
+    priority: "low"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Frontend testing not performed as per instructions. Only backend API testing was requested."
+
+metadata:
+  created_by: "testing_agent"
+  version: "1.0"
+  test_sequence: 1
+  run_ui: false
+
+test_plan:
+  current_focus:
+    - "All backend API endpoints tested and verified"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+  - agent: "testing"
+    message: "Completed comprehensive backend API testing. All 6 tests passed successfully. Tested at external URL https://epc-power-solutions.preview.emergentagent.com/api. Results: (1) GET /api/ returns Hello World ✅ (2) POST /api/enquiries creates contact enquiry with all fields ✅ (3) POST /api/enquiries creates product quote enquiry ✅ (4) POST /api/enquiries validates email and returns 422 for invalid input ✅ (5) GET /api/enquiries returns sorted list ✅ (6) GET /api/company-profile.pdf returns valid PDF with correct headers ✅. No critical issues found. Backend is fully functional."

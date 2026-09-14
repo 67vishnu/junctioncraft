@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowUpRight, Download } from "lucide-react";
 import { COMPANY, NAV_LINKS, SERVICES } from "../mock";
+import { COMPANY_PROFILE_PDF } from "../api";
 
 const Footer = () => {
   return (
@@ -110,6 +111,14 @@ const Footer = () => {
               className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-emerald-400 hover:text-emerald-300"
             >
               Chat on WhatsApp <ArrowUpRight className="h-4 w-4" />
+            </a>
+            <a
+              href={COMPANY_PROFILE_PDF}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 flex items-center gap-2 text-sm font-semibold text-neutral-300 hover:text-emerald-300"
+            >
+              <Download className="h-4 w-4" /> Download Company Profile (PDF)
             </a>
           </div>
         </div>

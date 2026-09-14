@@ -11,6 +11,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import Reveal from "../components/Reveal";
+import DownloadProfile from "../components/DownloadProfile";
 import { Eyebrow, CtaBand } from "../components/Sections";
 import { ABOUT, STATS, COMPANY } from "../mock";
 
@@ -43,7 +44,49 @@ const About = () => {
             <p className="text-lg text-neutral-600 leading-relaxed max-w-2xl mt-6">
               {ABOUT.body}
             </p>
+            <div className="mt-8">
+              <DownloadProfile />
+            </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* Story */}
+      <section className="py-16 sm:py-20 bg-background">
+        <div className="max-w-3xl mx-auto px-5 sm:px-8 space-y-6">
+          {ABOUT.paragraphs.map((p, i) => (
+            <Reveal key={i} delay={i * 80}>
+              <p className="text-neutral-700 leading-relaxed text-lg">{p}</p>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Expertise */}
+      <section className="py-16 bg-secondary">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          <Reveal className="mb-10">
+            <Eyebrow>Our Expertise</Eyebrow>
+            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-neutral-900">
+              Capabilities across the power value chain.
+            </h2>
+          </Reveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {ABOUT.expertise.map((e, i) => (
+              <Reveal
+                key={i}
+                delay={i * 80}
+                className="bg-card rounded-2xl border border-border p-6"
+              >
+                <h3 className="font-display text-lg font-bold text-neutral-900 mb-2">
+                  {e.title}
+                </h3>
+                <p className="text-neutral-600 text-sm leading-relaxed">
+                  {e.text}
+                </p>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
