@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 // Fade-up on scroll into view
-const Reveal = ({ children, delay = 0, className = "", as: Tag = "div" }) => {
+const Reveal = ({ children, delay = 0, className = "", as: Tag = "div", ...rest }) => {
   const ref = useRef(null);
   const [shown, setShown] = useState(false);
 
@@ -27,6 +27,7 @@ const Reveal = ({ children, delay = 0, className = "", as: Tag = "div" }) => {
     <Tag
       ref={ref}
       className={className}
+      {...rest}
       style={{
         opacity: shown ? 1 : 0,
         transform: shown ? "translateY(0)" : "translateY(28px)",

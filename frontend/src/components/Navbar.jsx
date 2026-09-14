@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ArrowUpRight, Zap } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { NAV_LINKS, COMPANY } from "../mock";
 
 const Logo = () => (
   <Link to="/" className="flex items-center gap-2.5 group">
-    <div className="relative h-10 w-10 flex items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm overflow-hidden">
-      <span className="absolute inset-0 bg-gradient-to-br from-emerald-700 to-primary" />
-      <Zap className="relative h-5 w-5" strokeWidth={2.5} />
-    </div>
+    <img
+      src={COMPANY.logo}
+      alt="Junctioncraft Pvt. Ltd. (JCPL) logo"
+      className="h-11 w-11 object-contain"
+    />
     <div className="leading-none">
       <div className="font-display text-lg font-extrabold tracking-tight text-neutral-900">
         Junctioncraft

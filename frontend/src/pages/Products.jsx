@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { CheckCircle2 } from "lucide-react";
 import Reveal from "../components/Reveal";
 import { Eyebrow, CtaBand } from "../components/Sections";
@@ -28,8 +29,10 @@ const Products = () => {
           {PRODUCTS.map((p, i) => (
             <Reveal
               key={p.slug}
+              as={Link}
+              to={`/products/${p.slug}`}
               delay={(i % 3) * 90}
-              className="group bg-card rounded-2xl overflow-hidden border border-border hover:shadow-2xl transition-all"
+              className="group bg-card rounded-2xl overflow-hidden border border-border hover:shadow-2xl transition-all block"
             >
               <div className="h-56 overflow-hidden">
                 <img

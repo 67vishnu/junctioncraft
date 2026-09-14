@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
 import { MapPin, Zap, Ruler } from "lucide-react";
 import Reveal from "../components/Reveal";
 import { Eyebrow, ClientsStrip, CtaBand } from "../components/Sections";
@@ -56,8 +57,10 @@ const Projects = () => {
             {list.map((p, i) => (
               <Reveal
                 key={`${p.client}-${i}`}
+                as={Link}
+                to={`/projects/${p.id}`}
                 delay={(i % 3) * 80}
-                className="group bg-card rounded-2xl overflow-hidden border border-border hover:shadow-2xl transition-all"
+                className="group bg-card rounded-2xl overflow-hidden border border-border hover:shadow-2xl transition-all block"
               >
                 <div className="h-48 overflow-hidden relative">
                   <img

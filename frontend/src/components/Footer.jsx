@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Zap, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import { COMPANY, NAV_LINKS, SERVICES } from "../mock";
 
 const Footer = () => {
@@ -11,8 +11,12 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5 mb-5">
-              <div className="h-10 w-10 flex items-center justify-center rounded-full bg-gradient-to-br from-emerald-600 to-primary text-white">
-                <Zap className="h-5 w-5" strokeWidth={2.5} />
+              <div className="h-11 w-11 rounded-full bg-white flex items-center justify-center overflow-hidden">
+                <img
+                  src={COMPANY.logo}
+                  alt="JCPL logo"
+                  className="h-full w-full object-contain"
+                />
               </div>
               <div className="leading-none">
                 <div className="font-display text-lg font-extrabold text-white">

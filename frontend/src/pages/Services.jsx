@@ -41,8 +41,10 @@ const Services = () => {
             return (
               <Reveal
                 key={s.slug}
+                as={Link}
+                to={`/services/${s.slug}`}
                 delay={(i % 3) * 90}
-                className="group bg-card rounded-2xl border border-border p-8 hover:shadow-xl hover:-translate-y-1 transition-all"
+                className="group bg-card rounded-2xl border border-border p-8 hover:shadow-xl hover:-translate-y-1 transition-all block"
               >
                 <div className="flex items-center justify-between mb-6">
                   <span className="font-display text-2xl font-extrabold text-neutral-200">

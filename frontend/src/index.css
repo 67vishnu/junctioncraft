@@ -72,14 +72,17 @@ body {
 .jc-hero-bg {
   background-color: hsl(var(--background));
   background-image:
-    radial-gradient(circle at 80% 20%, rgba(20, 71, 47, 0.06), transparent 55%),
-    url("https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1600&q=60");
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: luminosity;
+    radial-gradient(circle at 78% 30%, rgba(20, 71, 47, 0.05), transparent 55%),
+    linear-gradient(180deg, #f3f2ec 0%, hsl(var(--background)) 100%);
 }
 .jc-hero-veil {
-  background: linear-gradient(180deg, rgba(238,237,231,0.86) 0%, rgba(238,237,231,0.94) 60%, hsl(var(--background)) 100%);
+  background: transparent;
+}
+
+/* Wind turbine blade rotation */
+@keyframes jc-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 ::selection {

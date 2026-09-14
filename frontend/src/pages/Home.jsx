@@ -15,6 +15,7 @@ import {
   MapPin,
 } from "lucide-react";
 import Reveal from "../components/Reveal";
+import WindTurbine from "../components/WindTurbine";
 import {
   Eyebrow,
   Marquee,
@@ -49,7 +50,8 @@ const Home = () => {
     <main className="overflow-hidden">
       {/* HERO */}
       <section className="relative pt-[72px] jc-hero-bg">
-        <div className="jc-hero-veil">
+        <WindTurbine />
+        <div className="jc-hero-veil relative z-10">
           <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-16 pb-20 sm:pt-24 sm:pb-28">
             <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-16 items-center">
               <div className="jc-reveal">
@@ -177,8 +179,10 @@ const Home = () => {
             {PRODUCTS.map((p, i) => (
               <Reveal
                 key={p.slug}
+                as={Link}
+                to={`/products/${p.slug}`}
                 delay={(i % 3) * 90}
-                className="group bg-card rounded-2xl overflow-hidden border border-border hover:shadow-2xl transition-all"
+                className="group bg-card rounded-2xl overflow-hidden border border-border hover:shadow-2xl transition-all block"
               >
                 <div className="h-52 overflow-hidden">
                   <img
@@ -217,8 +221,10 @@ const Home = () => {
               return (
                 <Reveal
                   key={s.slug}
+                  as={Link}
+                  to={`/services/${s.slug}`}
                   delay={(i % 3) * 80}
-                  className="group bg-background p-8 hover:bg-secondary transition-colors"
+                  className="group bg-background p-8 hover:bg-secondary transition-colors block"
                 >
                   <div className="flex items-center justify-between mb-6">
                     <span className="font-display text-sm font-bold text-neutral-300">
@@ -308,8 +314,10 @@ const Home = () => {
             {PROJECTS.slice(0, 3).map((p, i) => (
               <Reveal
                 key={i}
+                as={Link}
+                to={`/projects/${p.id}`}
                 delay={i * 100}
-                className="group bg-card rounded-2xl overflow-hidden border border-border hover:shadow-2xl transition-all"
+                className="group bg-card rounded-2xl overflow-hidden border border-border hover:shadow-2xl transition-all block"
               >
                 <div className="h-48 overflow-hidden relative">
                   <img
