@@ -29,7 +29,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm text-neutral-400 leading-relaxed max-w-xs">
-              Government-approved Class-1 Electrical Contractor delivering green
+              Karnataka Government-approved delivering green
               energy EPC across India since {COMPANY.since}.
             </p>
           </div>
@@ -127,7 +127,7 @@ const Footer = () => {
           <p>
             © {new Date().getFullYear()} {COMPANY.legal}. All rights reserved.
           </p>
-          <p>Registered with ROC Bangalore · Class-1 Electrical Contractor, Karnataka</p>
+          <p>Registered with ROC Bangalore Karnataka</p>
         </div>
       </div>
     </footer>
